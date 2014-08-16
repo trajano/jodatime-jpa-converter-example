@@ -1,4 +1,5 @@
 *.iml
+login.properties
 .DS_Store
 .checkstyle
 .classpath

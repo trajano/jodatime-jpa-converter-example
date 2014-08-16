@@ -10,7 +10,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
+import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 
 @Entity
@@ -22,13 +24,27 @@ public class BeanWithJodaTime {
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	Date javaUtilDate;
+	LocalDate localDate;
+
 	@Column(nullable = false)
 	LocalDateTime localDateTime;
+
+	@Version
+	private int version;
+
+	public LocalDate getLocalDate() {
+		return localDate;
+	}
+
+	public void setLocalDate(final LocalDate localDate) {
+		this.localDate = localDate;
+	}
 
 	@Override
 	public String toString() {
 		return "BeanWithJodaTime [id=" + id + ", javaUtilDate=" + javaUtilDate
-				+ ", localDateTime=" + localDateTime + "]";
+				+ ", localDate=" + localDate + ", localDateTime="
+				+ localDateTime + ", version=" + version + "]";
 	}
 
 }

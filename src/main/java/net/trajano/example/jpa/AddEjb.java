@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 
 @Stateless
@@ -18,6 +19,7 @@ public class AddEjb {
 		final BeanWithJodaTime entity = new BeanWithJodaTime();
 		entity.javaUtilDate = new Date();
 		entity.localDateTime = LocalDateTime.now();
+		entity.localDate = LocalDate.now();
 		em.persist(entity);
 		em.flush();
 		return entity;

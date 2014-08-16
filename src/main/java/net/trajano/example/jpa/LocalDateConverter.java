@@ -3,20 +3,25 @@ package net.trajano.example.jpa;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import org.joda.time.LocalDateTime;
+import org.joda.time.LocalDate;
 
 @Converter(autoApply = true)
 public class LocalDateConverter implements
-AttributeConverter<LocalDateTime, String> {
+		AttributeConverter<LocalDate, String> {
 
 	@Override
-	public String convertToDatabaseColumn(final LocalDateTime attribute) {
-		return attribute.toString();
+	public String convertToDatabaseColumn(final LocalDate localDate) {
+		if (localDate == null) {
+			return null;
+		}
+		return localDate.toString();
 	}
 
 	@Override
-	public LocalDateTime convertToEntityAttribute(final String dbData) {
-		return LocalDateTime.parse(dbData);
+	public LocalDate convertToEntityAttribute(final String dbData) {
+		if (dbData == null) {
+			return null;
+		}
+		return LocalDate.parse(dbData);
 	}
-
 }

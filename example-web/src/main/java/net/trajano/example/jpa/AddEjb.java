@@ -2,6 +2,7 @@ package net.trajano.example.jpa;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -20,6 +21,7 @@ public class AddEjb {
 		entity.javaUtilDate = new Date();
 		entity.localDateTime = LocalDateTime.now();
 		entity.localDate = LocalDate.now();
+		entity.uuid = UUID.randomUUID();
 		em.persist(entity);
 		em.flush();
 		return entity;

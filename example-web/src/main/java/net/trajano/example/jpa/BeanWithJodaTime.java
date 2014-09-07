@@ -1,6 +1,7 @@
 package net.trajano.example.jpa;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,6 +29,7 @@ public class BeanWithJodaTime {
 
 	@Column(nullable = false)
 	LocalDateTime localDateTime;
+	UUID uuid;
 
 	@Version
 	private int version;
@@ -44,7 +46,8 @@ public class BeanWithJodaTime {
 	public String toString() {
 		return "BeanWithJodaTime [id=" + id + ", javaUtilDate=" + javaUtilDate
 				+ ", localDate=" + localDate + ", localDateTime="
-				+ localDateTime + ", version=" + version + "]";
+				+ localDateTime + ", uuid=" + uuid + ", version=" + version
+				+ "]";
 	}
 
 }

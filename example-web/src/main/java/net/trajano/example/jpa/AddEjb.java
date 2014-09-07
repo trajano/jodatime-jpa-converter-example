@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.ejb.Stateless;
+import javax.json.Json;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -22,6 +23,8 @@ public class AddEjb {
 		entity.localDateTime = LocalDateTime.now();
 		entity.localDate = LocalDate.now();
 		entity.uuid = UUID.randomUUID();
+		entity.setJson(Json.createObjectBuilder()
+				.add("test", entity.uuid.toString()).build());
 		em.persist(entity);
 		em.flush();
 		return entity;

@@ -3,6 +3,7 @@ package net.trajano.example.jpa;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.json.JsonObject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,17 +26,28 @@ public class BeanWithJodaTime {
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	Date javaUtilDate;
+
+	private JsonObject json;
+
 	LocalDate localDate;
 
 	@Column(nullable = false)
 	LocalDateTime localDateTime;
-	UUID uuid;
 
+	UUID uuid;
 	@Version
 	private int version;
 
+	public JsonObject getJson() {
+		return json;
+	}
+
 	public LocalDate getLocalDate() {
 		return localDate;
+	}
+
+	public void setJson(final JsonObject json) {
+		this.json = json;
 	}
 
 	public void setLocalDate(final LocalDate localDate) {
@@ -45,9 +57,9 @@ public class BeanWithJodaTime {
 	@Override
 	public String toString() {
 		return "BeanWithJodaTime [id=" + id + ", javaUtilDate=" + javaUtilDate
-				+ ", localDate=" + localDate + ", localDateTime="
-				+ localDateTime + ", uuid=" + uuid + ", version=" + version
-				+ "]";
+				+ ", json=" + json + ", localDate=" + localDate
+				+ ", localDateTime=" + localDateTime + ", uuid=" + uuid
+				+ ", version=" + version + "]";
 	}
 
 }

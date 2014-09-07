@@ -8,5 +8,6 @@
 	<modules>
 		<module>example-web</module>
 		<module>example-ear</module>
+		<module>jpa-converters</module>
 	</modules>
 </project>

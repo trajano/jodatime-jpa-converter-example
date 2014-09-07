@@ -1,4 +1,4 @@
-package net.trajano.example.jpa;
+package net.trajano.example.jpa.converters;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

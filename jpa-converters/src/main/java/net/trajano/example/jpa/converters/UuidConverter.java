@@ -1,4 +1,4 @@
-package net.trajano.example.jpa;
+package net.trajano.example.jpa.converters;
 
 import java.util.UUID;
 
